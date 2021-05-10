@@ -112,7 +112,7 @@ name: 'TodoList',
       position: absolute;
       right: 0;
       bottom: 0;
-      color :rgba(177, 10, 10, 0.5);
+      color :rgba(143, 6, 6, 0.5);
         &:hover {
           cursor: pointer;
         }
