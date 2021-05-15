@@ -2,16 +2,16 @@
   <div class="todolist">
     <input v-model="newitem" type="text" class="input-item">
     <button class="btn-add" @click="addNewItem">ADD</button>
-    <button class="btn-delete">DELETE</button>
-    <ul  class="item">
+    <List :lists="lists"/>
+    <!-- <ul  class="item">
       <li v-for="list,index in lists" :key="index">
-        <input type="checkbox" class="checkbox" v-model="list.done">
+        <input type="checkbox" class="checkbox" v-model="list.done"> -->
           <!-- <span :class=" { done : list.done }">{{list.title}}</span> -->
-          <span  :class="{done : list.done }"> {{list.title}}</span>
+          <!-- <span  :class="{done : list.done }"> {{list.title}}</span>
         <button class="delete-item" @click="deleteItem(index)">X</button>
       </li>
-    </ul>
-     <Footer :title="title" />
+    </ul> -->
+     <!-- <Footer :title="title" /> -->
   </div>
 </template>
 
@@ -23,7 +23,7 @@ name: 'TodoList',
       newitem: '',
       lists: [],
       done:false,
-      title: 'FOOTER'
+      // title: 'FOOTER'
     }
   },
   methods : {
