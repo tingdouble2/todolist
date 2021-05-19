@@ -1,17 +1,9 @@
 <template>
   <div class="todolist">
-    <input v-model="newitem" type="text" class="input-item">
+    <input v-model="newitem" type="text" class="input-item" @keyup.enter="addNewItem">
     <button class="btn-add" @click="addNewItem">ADD</button>
-    <List :lists="lists"/>
-    <!-- <ul  class="item">
-      <li v-for="list,index in lists" :key="index">
-        <input type="checkbox" class="checkbox" v-model="list.done"> -->
-          <!-- <span :class=" { done : list.done }">{{list.title}}</span> -->
-          <!-- <span  :class="{done : list.done }"> {{list.title}}</span>
-        <button class="delete-item" @click="deleteItem(index)">X</button>
-      </li>
-    </ul> -->
-     <!-- <Footer :title="title" /> -->
+    <List @OnRemove='deleteItem' :lists="lists"/>
+
   </div>
 </template>
 
@@ -23,7 +15,6 @@ name: 'TodoList',
       newitem: '',
       lists: [],
       done:false,
-      // title: 'FOOTER'
     }
   },
   methods : {
@@ -34,17 +25,7 @@ name: 'TodoList',
       this.newitem =''
     },
     deleteItem(index) {
-      // this.$delete(this.lists,index)
-      // const index = this.lists.indexOf(list)
       this.lists.splice(index ,1)
-      console.log(index)
-    },
-    checkDone() {
-      let total = document.querySelectorAll('input[type="checkbox"]:checked').length
-      // const checked = document.getElementsByClassName('checkbox')
-      if (total > 0) {
-
-      }
     }
   }
 }
@@ -65,7 +46,8 @@ name: 'TodoList',
       padding: 10px;
       border-radius: 5px;
       border: 1px solid #d3d3d3;
-      margin-left: 50px;
+      margin-left: 10rem;
+      margin-top: 15px;
     }
 
 
